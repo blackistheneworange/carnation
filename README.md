@@ -1,5 +1,7 @@
 A simple car inventory app built using next.js, redux, material-ui.
 
+Preview url - [https://carnation-xeeo.onrender.com](https://carnation-xeeo.onrender.com)
+
 ## Getting Started
 
 First, run the development server:

@@ -23,18 +23,17 @@ To learn more about Next.js, take a look at the following resources:
 #User
 
 - [http://localhost:3000/login](http://localhost:3000/login) - Login as user.
-- [http://localhost:3000/login](http://localhost:3000/signup) - Register as a new user.
-- [http://localhost:3000/login](http://localhost:3000) - View/buy listed cars as a user.
-- [http://localhost:3000/login](http://localhost:3000/purchased-cars) - View purchased cars by the user.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [http://localhost:3000/signup](http://localhost:3000/signup) - Register as a new user.
+- [http://localhost:3000](http://localhost:3000) - View/buy listed cars as a user.
+- [http://localhost:3000/purchased-cars](http://localhost:3000/purchased-cars) - View purchased cars by the user.
 
 
 #Admin
 
-- [http://localhost:3000/admin/login](http://localhost:3000/login) - Login as admin.
-- [http://localhost:3000/login](http://localhost:3000/admin/signup) - Register as a new admin.
-- [http://localhost:3000/login](http://localhost:3000/admin) - View/edit/delete listed cars as an admin.
-- [http://localhost:3000/login](http://localhost:3000/admin/new-car) - Create a new car as an admin.
+- [http://localhost:3000/admin/login](http://localhost:3000/admin/login) - Login as admin.
+- [http://localhost:3000/admin/login](http://localhost:3000/admin/signup) - Register as a new admin.
+- [http://localhost:3000/admin](http://localhost:3000/admin) - View/edit/delete listed cars as an admin.
+- [http://localhost:3000/admin/new-car](http://localhost:3000/admin/new-car) - Create a new car as an admin.
 
 #Data
 

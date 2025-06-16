@@ -13,6 +13,7 @@ import axios from "axios";
 import { FullPageLoader } from "@/components/FullPageLoader";
 import { showNotification } from "@/lib/features/notification/notificationSlice";
 import { ListedCarManage } from "@/components/ListedCarManage";
+import { filterCarData } from "@/utils/filterCarData";
 
 export default function ListedCars() {
   const car_data = useSelector((state: RootState) => state.car);
@@ -62,12 +63,14 @@ export default function ListedCars() {
   }
 
   if(car_data.loading) return <FullPageLoader />;
+  
+  const filtered_car_data = filterCarData(car_data.listed_cars, car_data.filter_options) as Array<any>;
 
   return (
     <Grid container spacing={2} style={{ padding:'24px'}}>
-      {car_data.listed_cars.length === 0 ?
+      {filtered_car_data.length === 0 ?
         <Typography>No data to display</Typography>
-      : car_data.listed_cars.map(car =>
+      : filtered_car_data.map(car =>
         <Grid key={car.id} size={{ xs: 6, md: 4, lg: 2 }}>
           <ListedCarManage {...car} onDelete={onDelete} />
         </Grid>

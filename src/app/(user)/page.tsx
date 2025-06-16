@@ -12,21 +12,7 @@ import { addPurchasedCar, setListedCars, setLoadingState, setPurchasingState, up
 import axios from "axios";
 import { FullPageLoader } from "@/components/FullPageLoader";
 import { showNotification } from "@/lib/features/notification/notificationSlice";
-
-const applyFilterOptions = (data: any, filter: any) => {
-  return data.filter((d: any) => {
-    if(
-      (filter.brand.length === 0 || d.brand?.toLowerCase() === filter.brand?.toLowerCase()) &&
-      (filter.variant.length === 0 || d.variant?.toLowerCase() === filter.variant?.toLowerCase()) &&
-      (filter.cost_from.length === 0 || parseInt(d.cost) >= parseInt(filter.cost_from)) &&
-      (filter.cost_to.length === 0 || parseInt(d.cost) <= parseInt(filter.cost_to)) &&
-      (filter.safetyRating.length === 0 || parseInt(d.safetyRating) == parseInt(filter.safetyRating))
-    ){
-      return true;
-    }
-    return false;
-  });
-}
+import { filterCarData } from "@/utils/filterCarData";
 
 export default function ListedCars() {
   const car_data = useSelector((state: RootState) => state.car);
@@ -81,7 +67,7 @@ export default function ListedCars() {
 
   if(car_data.loading) return <FullPageLoader />;
 
-  const filtered_car_data = applyFilterOptions(car_data.listed_cars, car_data.filter_options) as Array<any>;
+  const filtered_car_data = filterCarData(car_data.listed_cars, car_data.filter_options) as Array<any>;
 
   return (
     <Grid container spacing={2} style={{ padding:'24px'}}>

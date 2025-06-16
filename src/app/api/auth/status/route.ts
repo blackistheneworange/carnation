@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 
-export async function GET(request: Request) {
+export async function GET() {
     try{
         const cookieStore = await cookies();
         const session_id = cookieStore.get('session_id')?.value as string;
@@ -20,7 +20,7 @@ export async function GET(request: Request) {
         });
     }
     catch(err){
-        return new Response(JSON.stringify({ message: err }), {
+        return new Response(JSON.stringify({ message: "Server error" }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }
         });

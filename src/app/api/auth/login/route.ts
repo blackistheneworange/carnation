@@ -1,12 +1,13 @@
 import fs from 'fs';
 import { cookies } from 'next/headers';
+import { join } from 'path';
 
 export async function POST(request: Request) {
     const body = await request.json();
     const { email, password } = body;
    
     try{
-      const data = JSON.parse(fs.readFileSync(`src/app/api/stub/users.json`, 'utf-8'));
+      const data = JSON.parse(fs.readFileSync(join(process.cwd(),'src/app/api/stub/users.json'), 'utf-8'));
       const user_data = data.find((dat:any) => dat.email === email && dat.password === password);
 
       if(!user_data){

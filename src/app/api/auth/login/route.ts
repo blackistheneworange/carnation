@@ -7,8 +7,7 @@ export async function POST(request: Request) {
     const { email, password } = body;
    
     try{
-      console.log('debug', process.cwd())
-      const data = JSON.parse(fs.readFileSync(join('./src/app/api/stub/', 'users.json'), 'utf-8'));
+      const data = JSON.parse(fs.readFileSync(join('src/app/api/stub/', 'users.json'), 'utf-8'));
       const user_data = data.find((dat:any) => dat.email === email && dat.password === password);
 
       if(!user_data){

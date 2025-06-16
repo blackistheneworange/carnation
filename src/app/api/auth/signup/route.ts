@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const { email, password } = body;
    
     try{
-      const data = JSON.parse(fs.readFileSync(path.join(process.cwd(),'src/app/api/stub/users.json'), 'utf-8'));
+      const data = JSON.parse(fs.readFileSync(path.join('src/app/api/stub/', 'users.json'), 'utf-8'));
       const existing_user_data = data.find((dat:any) => dat.email === email);
 
       if(existing_user_data){
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         password
       })
 
-      fs.writeFileSync(path.join(process.cwd(),'src/app/api/stub/users.json'), JSON.stringify(data));
+      fs.writeFileSync(path.join('src/app/api/stub/', 'users.json'), JSON.stringify(data));
 
       return new Response(JSON.stringify({ message: 'Success' }), {
         status: 200,
@@ -33,7 +33,6 @@ export async function POST(request: Request) {
       });
     }
     catch(err){
-        console.log(err, process.cwd())
       return new Response(JSON.stringify({ message: "Server error" }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
